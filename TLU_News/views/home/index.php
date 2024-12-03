@@ -42,16 +42,9 @@
                             echo '</div>';
                         }
                     }
-
                     echo '</div>';
                 }
             ?>
-            <div class="new_category">
-                
-            </div>
-            <div class="news_title">
-
-            </div>
         </div>
     </p>
 </body>
