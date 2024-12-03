@@ -10,35 +10,36 @@
 
 </head>
 <body>
-    <div class="container">
-        <h3>News Manager</h3>
-        <a href="index.php?action=add" class="btn btn-success">Add News</a>
-        <table class="table">
-            <thead>
+
+<div class="container">
+    <h3>News Manager</h3>
+    <a href="index.php?action=add" class="btn btn-success">Add News</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Content</th>
+            <th scope="col">Image</th>
+            <th scope="col">Create at</th>
+            <th scope="col">Category</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach($newslist as $news):?>
             <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Content</th>
-                <th scope="col">Image</th>
-                <th scope="col">Create at</th>
-                <th scope="col">Category</th>
-                <th scope="col">Hành động</th>
+                <td><?= $news['title']?></td>
+                <td><?= $news['content']?></td>
+                <td><img src="<?= $news['image']?>" width="100px"></td>
+                <td><?= $news['created_at']?></td>
+                <td><?= $news['category_id']?></td>
+                <td><a href="index.php?action=edit&index=<?= $news['id']?>" class="btn btn-primary">Edit</a></td>
+                <td><a href="index.php?action=delete&index=<?= $news['id']?>" class="btn btn-primary">Delete</a></td>
             </tr>
-            </thead>
-            <tbody>
-            <?php foreach($newslist as $news):?>
-                <tr>
-                    <td><?= $news->getTitle()?></td>
-                    <td><?= $news->getContent()?></td>
-                    <td><img src="<?= $news->getImage()?>" width="100px"></td>
-                    <td><?= $news->getCreate_at()?></td>
-                    <td><?= $news->getCategory_id()?></td>
-                    <td><a href="index.php?action=edit&index=<?= $news->getId()?>" class="btn btn-primary">Edit</a></td>
-                    <td><a href="index.php?action=delete&index=<?= $news->getId()?>" class="btn btn-primary">Delete</a></td>
-                </tr>
-            <?php endforeach?>
-            </tbody>
-        </table>
-    </div>
+        <?php endforeach?>
+        </tbody>
+    </table>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
