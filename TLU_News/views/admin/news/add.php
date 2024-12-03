@@ -20,16 +20,18 @@
     Create at
     <input type="date" name="create_at" id="create_at" class="form-control">
     Category id
+
     <select name="category_id" id="category_id" class="form-control mb-3">
         <option value="">Select a category</option>
         <?php foreach ($categorylist as $category): ?>
             <option value="<?= $category['id'] ?>"><?= htmlspecialchars($category['name']) ?></option>
         <?php endforeach; ?>
     </select>
+
+    <input type="text" name="category_id" id="category_id" class="form-control mb-3">
+
     <Button type="submit" class="btn btn-success">Add</Button>
     <a href="index.php" class="btn btn-secondary">Cancel</a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
 </body>
 </html>
-

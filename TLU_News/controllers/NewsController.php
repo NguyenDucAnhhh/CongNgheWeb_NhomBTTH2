@@ -61,3 +61,4 @@ class NewsController{
         header ("Location:index.php");
     }
 }
+?>

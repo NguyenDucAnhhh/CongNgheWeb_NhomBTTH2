@@ -1,4 +1,5 @@
 <?php
+
 require 'controllers/NewsController.php';
 if(isset($_GET['action'])){
     if($_GET['action'] == 'add'){
@@ -18,3 +19,4 @@ else {
     $controller = new NewsController();
     $controller->index();
 }
+?>

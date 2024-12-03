@@ -10,6 +10,7 @@
 
 </head>
 <body>
+
 <div class="container">
     <h3>News Manager</h3>
     <a href="index.php?action=add" class="btn btn-success">Add News</a>
@@ -43,4 +44,3 @@
 
 </body>
 </html>
-
