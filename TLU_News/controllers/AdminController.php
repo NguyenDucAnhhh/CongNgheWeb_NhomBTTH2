@@ -1,8 +1,8 @@
 <?php
     session_start();
     ob_start();
-    include "../db.php";
-    include "../models/Users.php";
+    require_once __DIR__ . '/../db.php';
+    require_once __DIR__ . '/../models/Users.php';
     
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dangnhap'])) {
         $username = trim($_POST['username']);
@@ -15,11 +15,18 @@
                 header('Location: dashboard.php');
                 exit();
             }elseif ($role == 0) {
-                header('Location: ../../models/User.php');
+                header('Location: ../../views/home/index.php');
                 exit();
             }
         } else {
             $txt_error = "Tên đăng nhập hoặc mật khẩu không đúng.";
         }
+    }
+
+    if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
+        session_unset();
+        session_destroy();
+        header('Location: ../views/admin/login.php');
+        exit();
     }
 ?>
