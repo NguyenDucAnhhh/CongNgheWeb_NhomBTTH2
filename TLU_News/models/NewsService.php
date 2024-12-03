@@ -46,4 +46,12 @@ class NewsService {
         $stmt->bindParam(":id",$id,PDO::PARAM_INT);
         $stmt->execute();
     }
+//    timkiem
+    function TimKiem($conn,$tukhoa){
+        $sql = "SELECT * FROM news
+				WHERE title REGEXP '$tukhoa'
+				ORDER BY id DESC
+				";
+        return mysqli_query($conn,$sql);
+    }
 }

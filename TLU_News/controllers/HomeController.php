@@ -17,4 +17,12 @@
             require 'views/home/index.php'; // goi den views
         }
     }
+
 ?>
+<!--Timkiem-->
+<?php
+$tukhoa = $_GET['search'];
+$tintheoloai = TimKiem($conn,$tukhoa);
+while($row_tintheoloai = mysqli_fetch_array($tintheoloai)){
+    ?>
+<?php } ?>
