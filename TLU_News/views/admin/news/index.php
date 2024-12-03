@@ -10,10 +10,9 @@
 
 </head>
 <body>
-
 <div class="container">
     <h3>News Manager</h3>
-    <a href="index.php?action=add" class="btn btn-success">Add News</a>
+    <a href="/TLU_News/index.php?controller=News&action=addNews" class="btn btn-success">Add News</a>
     <table class="table">
         <thead>
         <tr>
@@ -33,8 +32,8 @@
                 <td><img src="<?= $news['image']?>" width="100px"></td>
                 <td><?= $news['created_at']?></td>
                 <td><?= $news['category_id']?></td>
-                <td><a href="index.php?action=edit&index=<?= $news['id']?>" class="btn btn-primary">Edit</a></td>
-                <td><a href="index.php?action=delete&index=<?= $news['id']?>" class="btn btn-primary">Delete</a></td>
+                <td><a href="/TLU_News/index.php?controller=News&action=editNews&index=<?= $news['id']?>" class="btn btn-primary">Edit</a></td>
+                <td><a href="/TLU_News/index.php?controller=News&action=deleteNews&index=<?= $news['id']?>" class="btn btn-primary">Delete</a></td>
             </tr>
         <?php endforeach?>
         </tbody>
@@ -44,3 +43,4 @@
 
 </body>
 </html>
+

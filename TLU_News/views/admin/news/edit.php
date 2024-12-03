@@ -22,7 +22,8 @@ Create at
 Category id
 <input type="text" name="category_id" id="category_id" class="form-control mb-3" value="<?=$current_news['category_id']?>">
 <Button type="submit" class="btn btn-success">Save</Button>
-<a href="index.php" class="btn btn-secondary">Cancel</a>
+<a href="/TLU_News/index.php?controller=News&action=index" class="btn btn-secondary">Cancel</a>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>
 </html>

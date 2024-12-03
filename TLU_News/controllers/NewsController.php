@@ -30,7 +30,7 @@ class NewsController{
 
 
             $ns->addNews($title,$content,$image,$create_at,$category_id);
-            header ("Location:index.php");
+            header ("Location:index.php?controller=News&action=index");
         }
     }
     public function editNews($id){
@@ -52,13 +52,12 @@ class NewsController{
             $image=$target_dir.$_FILES["image"]["name"];
             $ns->editNews($id,$title,$content,$image,$create_at,$category_id);
 
-            header ("Location:index.php");
+            header ("Location:index.php?controller=News&action=index");
         }
     }
     public function deleteNews($id){
         $ns = new News();
         $ns->deleteNews($id);
-        header ("Location:index.php");
+        header ("Location:index.php?controller=News&action=index");
     }
 }
-?>
