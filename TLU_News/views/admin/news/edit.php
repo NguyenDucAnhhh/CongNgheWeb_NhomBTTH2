@@ -15,15 +15,14 @@
     <input type="text" class="form-control" name="title" id="title" value="<?=$current_news['title']?>" required>
     Content:
     <Textarea name="content" id="content" cols="50" rows="5" class="form-control"><?=$current_news['content']?></Textarea>
-    Image:
-    <input type="file" name="image" id="image" class="form-control">
-    Create at
-    <input type="date" name="create_at" id="create_at" class="form-control" value="<?=date('Y-m-d', strtotime($current_news['created_at']))?>">
-    Category id
-    <input type="text" name="category_id" id="category_id" class="form-control mb-3" value="<?=$current_news['category_id']?>">
-    <Button type="submit" class="btn btn-success">Save</Button>
-    <a href="index.php" class="btn btn-secondary">Cancel</a>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+Image:
+<input type="file" name="image" id="image" class="form-control">
+Create at
+<input type="date" name="create_at" id="create_at" class="form-control" value="<?=date('Y-m-d', strtotime($current_news['created_at']))?>">
+Category id
+<input type="text" name="category_id" id="category_id" class="form-control mb-3" value="<?=$current_news['category_id']?>">
+<Button type="submit" class="btn btn-success">Save</Button>
+<a href="index.php" class="btn btn-secondary">Cancel</a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
