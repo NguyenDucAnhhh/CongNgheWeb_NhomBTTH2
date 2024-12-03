@@ -1,7 +1,3 @@
-<?php
-    echo '<br>';
-    echo 'view, home';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,10 +33,11 @@
                     echo $categoryvalue->getName();
 
                     foreach($list_news as $newsvalue){
-                        if($newsvalue['category_id'] == $categoryvalue->getId()){
+
+                        if($newsvalue->getCategory_id() == $categoryvalue->getId()){
                             echo '<div class="news_title">'; 
-                            echo '<a href='.$linkdetail.$newsvalue['id'].'>';   
-                            echo $newsvalue['title'];
+                            echo '<a href='.$linkdetail.$newsvalue->getId().'>';   
+                            echo $newsvalue->getTitle();
                             echo '</a>';
                             echo '</div>';
                         }
