@@ -92,7 +92,7 @@
         </div>
 
         <!-- Nút thêm tin tức mới -->
-        <a href="/views/admin/news/add.php" class="btn btn-success">Thêm Tin Tức Mới</a>
+        <a href="../admin/news/add.php" class="btn btn-success">Thêm Tin Tức Mới</a>
 
     </div>
 
