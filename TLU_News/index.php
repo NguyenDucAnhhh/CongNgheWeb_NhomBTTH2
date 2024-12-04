@@ -1,3 +1,4 @@
+
 <?php
 
     // điều kiện để xem chi tiết tin tức: action = newsdetail. có thể thay đổi tùy ý điều kiện
