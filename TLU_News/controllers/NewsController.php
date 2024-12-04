@@ -1,11 +1,30 @@
 <?php
-require 'models/news.php';
-require 'models/category.php';
+require 'models/News.php';
+require 'models/Category.php';
 class NewsController{
     public function index(){
         $news=new News();
         $newslist=$news->getAllNews();
         include 'views/admin/news/index.php';
+    }
+    function showNews($id){
+
+        $news_detail = [];
+        $newsser = new News();    // newssver = news service
+        $list_news = $newsser->getAllNews();
+
+        foreach($list_news as $value){
+            if($value["id"] == $id){
+                $news_detail = $value;
+            }
+        }
+        if($news_detail != ''){
+            require 'views/news/detail.php';
+        }
+        else{
+            echo 'khong tim thay tin tuc';
+        }
+
     }
     public function addNews(){
         $ns = new News();
