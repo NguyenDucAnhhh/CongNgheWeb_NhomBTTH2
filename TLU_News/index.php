@@ -10,6 +10,11 @@
             $newscrtl = new NewsController;
             $newscrtl->showNews($id);
         }
+        if($_GET['action'] == 'search'){
+            require 'controllers/HomeController.php';
+            $newscrtl = new HomeController;
+            $newscrtl->showListNewsSearched();
+        }
     }
     else{
 

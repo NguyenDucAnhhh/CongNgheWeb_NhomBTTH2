@@ -10,7 +10,12 @@
 </head>
 <body>
     <h1 class="text-center">Tin tức TLU những ngày qua</h1>
+    
     <div class="container">
+    <form action="index.php?action=search" class="ps-5 pt-5" method="post">
+        <input type="text" name="search" value="<?= $tukhoa?>">
+        <button type="submit"> Tìm kiếm</button>
+    </form>
         <div class="row">
             <div class="col-md-12">
                 <div class="news_block p-3">
