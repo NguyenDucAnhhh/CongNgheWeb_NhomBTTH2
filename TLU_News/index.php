@@ -1,27 +1,85 @@
-
 <?php
 
-    // điều kiện để xem chi tiết tin tức: action = newsdetail. có thể thay đổi tùy ý điều kiện
-    if(isset($_GET['action'])){
-        if($_GET['action'] == 'newsdetail' && isset($_GET['id'])){
-            $id = $_GET['id'];
+session_start();
+if (!isset($_SESSION['role'])) {
+    require 'controllers/AdminController.php';
+    $admin= new AdminController();
+    $admin->login();
+    exit();
+}
 
-            
+if($_SESSION['role']==1){
+    $controller = isset($_GET['controller']) ? $_GET['controller'] : 'Admin';
+    $action = isset($_GET['action']) ? $_GET['action'] : 'dashboard';
+    $id = isset($_GET['index']) ? $_GET['index'] : null;
+
+    switch ($controller) {
+        case 'News':
             require 'controllers/NewsController.php';
-            $newscrtl = new NewsController;
-            $newscrtl->showNews($id);
-        }
-        if($_GET['action'] == 'search'){
-            require 'controllers/HomeController.php';
-            $newscrtl = new HomeController;
-            $newscrtl->showListNewsSearched($_POST['search']);
-        }
-    }
-    else{
+            $newsController = new NewsController();
+            if($id){
+                $newsController->$action($id);
 
-        // nếu ko có điều kiện xem tin tức. Nhận được điều kiện vào trang chủ thì hiển thị trang chủ
-        // trang chủ ở đây là home/index
-        require "controllers/HomeController.php";
-        $homeCrtl = new HomeController();
-        $homeCrtl->showListNew();
+            }
+            else $newsController->$action();
+
+            break;
+        case 'Admin':
+
+            require 'controllers/AdminController.php';
+            $adminController = new AdminController();
+            $adminController->$action();
+            break;
+        case 'Home':
+            require 'controllers/HomeController.php';
+            $homeController = new HomeController();
+            $homeController->$action();
+            break;
+        case 'search':
+            require 'controllers/HomeController.php';
+            $homeController = new HomeController();
+            $homeController->showListNewsSearched($_POST['search']);
+            break;
+        default:
+            echo "error";
+            break;
+
     }
+}
+if($_SESSION['role']==0){
+    $controller = isset($_GET['controller']) ? $_GET['controller'] : 'Home';
+    $action = isset($_GET['action']) ? $_GET['action'] : 'showListNew';
+    $id = isset($_GET['index']) ? $_GET['index'] : null;
+    switch ($controller) {
+        case 'Home':
+            require 'controllers/HomeController.php';
+            $homeController = new HomeController();
+            $homeController->$action();
+            break;
+
+
+        case 'News':
+            require 'controllers/NewsController.php';
+            $newsController = new NewsController();
+            if($id){
+                $newsController->$action($id);
+
+            }
+            else $newsController->$action();
+
+            break;
+        case 'Admin':
+            require 'controllers/AdminController.php';
+            $adminController = new AdminController();
+            $adminController->$action();
+            break;
+        case 'search':
+            require 'controllers/HomeController.php';
+            $homeController = new HomeController();
+            $homeController->showListNewsSearched($_POST['search']);
+            break;
+        Default :
+            echo "error";
+    }
+}
+?>
