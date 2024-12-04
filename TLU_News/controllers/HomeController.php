@@ -14,21 +14,19 @@
             require 'models/News.php';
             $newser = new News();
             $list_news = $newser->getAllNews();
+            $tukhoa = '';
 
             require 'views/home/index.php'; // goi den views
         }
 
         // ham search su dung thuat toan cua Viet Hoang
-        function showListNewsSearched(){
+        function showListNewsSearched($tukhoa){
             require 'models\Category.php';
             $newcategoryser = new Category();
             $list_categories = $newcategoryser->getAllCategory();
 
             require 'models/News.php';
             $newC = new HomeController();
-
-            $tukhoa = $_POST['search'];
-            echo $tukhoa;
 
             $host = "localhost"; // Địa chỉ máy chủ
             $dbname = "tintuc"; // Tên cơ sở dữ liệu

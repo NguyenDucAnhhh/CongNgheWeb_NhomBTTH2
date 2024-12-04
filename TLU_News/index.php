@@ -6,6 +6,7 @@
         if($_GET['action'] == 'newsdetail' && isset($_GET['id'])){
             $id = $_GET['id'];
 
+            
             require 'controllers/NewsController.php';
             $newscrtl = new NewsController;
             $newscrtl->showNews($id);
@@ -13,7 +14,7 @@
         if($_GET['action'] == 'search'){
             require 'controllers/HomeController.php';
             $newscrtl = new HomeController;
-            $newscrtl->showListNewsSearched();
+            $newscrtl->showListNewsSearched($_POST['search']);
         }
     }
     else{
