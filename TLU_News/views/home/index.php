@@ -2,50 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
     <title>Document</title>
-    <style>
-        .news_category{
-            background-color: white;
-            padding: 10px;
-        }
-        .news_title{
-            background-color: grey;
-            padding: 5px;
-        }
-        .news_title a{
-            text-decoration: none;
-            color: white;
-        }
-    </style>
 </head>
 <body>
-    <p>
-        <!-- login o day -->
-        <a href="views/admin/login.php">login</a>
-
-        <!-- tao 1 the de luu thong tin-->
-        <div class="news_block">
-            <?php
-                $linkdetail = 'index.php?action=newsdetail&id=';
-                foreach($list_categories as $categoryvalue){
-                    echo '<div class="news_category">';
-                    echo $categoryvalue->getName();
-
-                    foreach($list_news as $newsvalue){
-
-                        if($newsvalue->getCategory_id() == $categoryvalue->getId()){
-                            echo '<div class="news_title">'; 
-                            echo '<a href='.$linkdetail.$newsvalue->getId().'>';   
-                            echo $newsvalue->getTitle();
-                            echo '</a>';
-                            echo '</div>';
-                        }
+    <h1 class="text-center">Tin tức TLU những ngày qua</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="news_block p-3">
+                    <?php
+                    $linkdetail = 'index.php?action=newsdetail&id=';
+                    foreach ($list_categories as $categoryvalue) {
+                        echo '<div class="card mb-3">';
+                        echo '<div class="card-header bg-secondary text-white">';
+                            echo $categoryvalue['name'];
+                        echo '</div>';
+                        echo '<div class="card-body">';
+                            foreach ($list_news as $newsvalue) {
+                                if ($newsvalue["category_id"] == $categoryvalue["id"]) {
+                                    echo '<a href="' . $linkdetail . $newsvalue['id'] . '" class="card-link text-decoration-none">';
+                                    echo $newsvalue["title"];
+                                    echo '</a>';
+                                }
+                            }
+                        echo '</div>';
+                        echo '</div>';
                     }
-                    echo '</div>';
-                }
-            ?>
+                    ?>
+                </div>
+            </div>
         </div>
-    </p>
+    </div>
 </body>
 </html>

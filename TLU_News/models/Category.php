@@ -1,16 +1,11 @@
 <?php
-    class Category{
-        private $id;
-        private $name;
 
-        function __construct($id, $name) {
-            $this->id = $id;
-            $this->name = $name;
-        }
-        function getId(){
-            return $this->id;
-        }
-        function getName(){
-            return $this->name;
-        }
+class Category{
+    function getAllCategory(){
+        require 'db.php';
+        $stmt=$conn->prepare("SELECT * FROM categories");
+        $stmt->execute();
+        $categorylist=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $categorylist;
     }
+}

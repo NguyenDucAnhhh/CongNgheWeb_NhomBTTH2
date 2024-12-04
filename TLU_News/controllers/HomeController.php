@@ -6,12 +6,12 @@
             // hien thi len cho ng xem
             // yeu cau: hien thi ds tin tuc. tuc la chi can category, title. het
 
-            require 'models/CategoryService.php';
-            $newcategoryser = new CategorieService;
+            require 'models\Category.php';
+            $newcategoryser = new Category();
             $list_categories = $newcategoryser->getAllCategory();
 
-            require 'models/NewsService.php';
-            $newser = new NewsService;
+            require 'models/News.php';
+            $newser = new News();
             $list_news = $newser->getAllNews();
 
             require 'views/home/index.php'; // goi den views

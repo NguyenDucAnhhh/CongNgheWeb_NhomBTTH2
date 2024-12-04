@@ -2,13 +2,13 @@
 
     Class NewsController{
         function showNews($id){
-            require 'models/NewsService.php';
+            require 'models/News.php';
             $news_detail = [];
-            $newsser = new NewsService;    // newssver = news service
+            $newsser = new News();    // newssver = news service
             $list_news = $newsser->getAllNews();
 
             foreach($list_news as $value){
-                if($value->getId() == $id){
+                if($value["id"] == $id){
                     $news_detail = $value;
                 }
             }
