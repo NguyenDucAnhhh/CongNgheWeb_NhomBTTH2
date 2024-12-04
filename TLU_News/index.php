@@ -1,19 +1,6 @@
 <?php
-    require 'models/NewsService.php';
-    require 'controllers/AdminController.php';
-    $admin = new AdminController();
-    if(isset($_GET['action'])&&$_GET['action']== 'add'){
-        $admin->addNews();
-    }
-    else if(isset($_GET['action'])&&$_GET['action']== 'edit'&&isset($_GET['index'])){
-        $admin->editNews($_GET['index']);
-    }
-    else if(isset($_GET['action'])&&$_GET['action']== 'delete'&&isset($_GET['index'])){
-        $admin->deleteNews($_GET['index']);
-    }
-    else $admin->index();
 
-    // phan code trang chu va xem chi tiet tin tuc
+    // điều kiện để xem chi tiết tin tức: action = newsdetail. có thể thay đổi tùy ý điều kiện
     if(isset($_GET['action'])){
         if($_GET['action'] == 'newsdetail' && isset($_GET['id'])){
             $id = $_GET['id'];
@@ -24,6 +11,9 @@
         }
     }
     else{
+
+        // nếu ko có điều kiện xem tin tức. Nhận được điều kiện vào trang chủ thì hiển thị trang chủ
+        // trang chủ ở đây là home/index
         require "controllers/HomeController.php";
         $homeCrtl = new HomeController();
         $homeCrtl->showListNew();
