@@ -1,4 +1,3 @@
-
 <?php
 
 class HomeController{
@@ -18,6 +17,7 @@ class HomeController{
         require 'views/home/index.php'; // goi den views
 
     }
+
     function showListNewsSearched($tukhoa){
         require 'models\Category.php';
         $newcategoryser = new Category();
