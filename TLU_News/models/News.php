@@ -1,4 +1,5 @@
 <?php
+
 class News{
     public function getAllNews(){
         require 'db.php';
