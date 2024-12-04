@@ -68,6 +68,7 @@ if($_SESSION['role']==0){
             require 'controllers/AdminController.php';
             $adminController = new AdminController();
             $adminController->$action();
+            break;
         case 'search':
             require 'controllers/HomeController.php';
             $homeController = new HomeController();
