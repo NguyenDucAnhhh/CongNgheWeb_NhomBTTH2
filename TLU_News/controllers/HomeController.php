@@ -1,26 +1,23 @@
-
 <?php
-    
-    class HomeController{
-        function showListNew(){
-            // yeu cau data tu db
-            // hien thi len cho ng xem
-            // yeu cau: hien thi ds tin tuc. tuc la chi can category, title. het
 
-            require 'models\Category.php';
-            $newcategoryser = new Category();
-            $list_categories = $newcategoryser->getAllCategory();
+class HomeController{
+    function showListNew(){
+        // yeu cau data tu db
+        // hien thi len cho ng xem
+        // yeu cau: hien thi ds tin tuc. tuc la chi can category, title. het
 
-            require 'models/News.php';
-            $newser = new News();
-            $list_news = $newser->getAllNews();
-            $tukhoa = '';
+        require 'models\Category.php';
+        $newcategoryser = new Category();
+        $list_categories = $newcategoryser->getAllCategory();
 
-            require 'views/home/index.php'; // goi den views
-        }
+        require 'models/News.php';
+        $newser = new News();
+        $list_news = $newser->getAllNews();
+        $tukhoa='';
+        require 'views/home/index.php'; // goi den views
 
-        // ham search su dung thuat toan cua Viet Hoang
-        function showListNewsSearched($tukhoa){
+    }
+     function showListNewsSearched($tukhoa){
             require 'models\Category.php';
             $newcategoryser = new Category();
             $list_categories = $newcategoryser->getAllCategory();
@@ -33,7 +30,7 @@
             $username = "root"; // Tên người dùng
             $password = ""; // Mật khẩu
             $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-            
+
             $list_news = $newC->TimKiemPDO($conn, $tukhoa);
             require 'views/home/index.php'; // goi den views
         }
@@ -53,7 +50,7 @@
                 die("Kết nối thất bại: " . $e->getMessage());
             }
         }
-        
+
         // Hàm tìm kiếm
         function TimKiemPDO($conn, $tukhoa) {
             try {
@@ -72,4 +69,5 @@
             }
         }
     }
+
 ?>
